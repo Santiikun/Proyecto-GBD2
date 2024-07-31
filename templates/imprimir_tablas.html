@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del Sistema - Camas, Pacientes y Médicos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        thead {
+            background-color: #007bff;
+            color: #fff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Datos del Sistema</h1>
+
+        <h2>Médicos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Médico</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Numero Licencia</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Sexo</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medico in medicos %}
+                <tr>
+                    <td>{{ medico[0] }}</td>
+                    <td>{{ medico[1] }}</td>
+                    <td>{{ medico[2] }}</td>
+                    <td>{{ medico[3] }}</td>
+                    <td>{{ medico[4] }}</td>
+                    <td>{{ medico[5] }}</td>
+                    <td>{{ medico[6] }}</td>
+                    <td>{{ medico[7] }}</td>
+                    <td>{{ medico[8] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Pacientes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Paciente</th>
+                    <th>ID Ingreso</th>
+                    <th>ID Seguro</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Sexo</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td>{{ paciente[0] }}</td>
+                    <td>{{ paciente[1] }}</td>
+                    <td>{{ paciente[2] }}</td>
+                    <td>{{ paciente[3] }}</td>
+                    <td>{{ paciente[4] }}</td>
+                    <td>{{ paciente[5] }}</td>
+                    <td>{{ paciente[6] }}</td>
+                    <td>{{ paciente[7] }}</td>
+                    <td>{{ paciente[8] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Camas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Cama</th>
+                    <th>ID Paciente</th>
+                    <th>ID Médico</th>
+                    <th>Numero Cama</th>
+                    <th>Piso</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cama in camas %}
+                <tr>
+                    <td>{{ cama[0] }}</td>
+                    <td>{{ cama[1] }}</td>
+                    <td>{{ cama[2] }}</td>
+                    <td>{{ cama[3] }}</td>
+                    <td>{{ cama[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="footer">
+            &copy; 2024 Datos del Sistema. Todos los derechos reservados.
+        </div>
+    </div>
+</body>
+</html>

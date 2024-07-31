@@ -1,0 +1,49 @@
+INSERT INTO HOSPITAL (ID_HOSPITAL, NOMBRE, DIRECCION, TELEFONO, CORREO_ELECTRONICO, PAGINA_WEB) 
+VALUES (1, 'Hospital Central', '123 Calle Principal', 123456789, 'contacto@hospitalcentral.com', 'www.hospitalcentral.com');
+INSERT INTO DEPARTAMENTO (ID_DEPARTAMENTO, ID_HOSPITAL, NOMBRE, JEFE_DEPARTAMENTO) 
+VALUES (1, 1, 'Cardiología', 'Dr. Pérez');
+INSERT INTO PROVEEDOR (ID_PROVEEDOR, NOMBRE, DIRECCION, TELEFONO, CORREO_ELECTRONICO) 
+VALUES (1, 'Proveedor Medicinas', '789 Calle Terciaria', 123123123, 'contacto@proveedormedicinas.com');
+INSERT INTO INVENTARIO_MEDICAMENTO (ID_INVENTARIO, CANTIDAD_STOCK, FECHA_VENCIMIENTO) 
+VALUES (1, 100, '2025-12-31');
+INSERT INTO COMPRA (ID_COMPRA, CANTIDAD, FECHA_COMPRA, PRECIO_UNITARIO, MONTO_TOTAL) 
+VALUES (1, 50, '2024-05-10', '10', 500);
+INSERT INTO MEDICAMENTO (ID_MEDICAMENTO, ID_INVENTARIO, ID_COMPRA, ID_PROVEEDOR, NOMBRE, LABORATORIO, COMPOSICION, INDICACIONES, CONTRAINDICACIONES, PRECIO) 
+VALUES (1, 1, 1, 1, 'Paracetamol', 'Lab Pharma', '500mg', 'Dolor y fiebre', 'Hipersensibilidad', 10);
+INSERT INTO SEGURO (ID_SEGURO, NOMBRE, NUMERO_POLIZA, TITULAR, COBERTURA) 
+VALUES (1, 'Seguro Vida', 123456, 'Pedro López', 'Completa');
+INSERT INTO MEDICO (ID_MEDICO, NOMBRE, APELLIDO, NUMERO_LICENCIA, FECHA_NACIMIENTO, SEXO, DIRECCION, TELEFONO, CORREO_ELECTRONICO, FECHA_REGISTRO) 
+VALUES (1, 'Carlos', 'Ramírez', 'ABC123', '1975-07-10', 'Masculino', '123 Calle Quinta', 456456456, 'carlos.ramirez@correo.com', '2024-01-01');
+INSERT INTO ESPECIALIDAD (ID_ESPECIALIDAD, ID_MEDICO, NOMBRE, DESCRIPCION) 
+VALUES (1, 1, 'Cardiología', 'Especialista en enfermedades del corazón');
+INSERT INTO EXAMEN (ID_EXAMEN, TIPO_EXAMEN, RESULTADO, FECHA_REALIZACION) 
+VALUES (1, 'Sangre', 'Normal', '2024-05-10');
+INSERT INTO CONSULTA (ID_CONSULTA, ID_EXAMEN, ID_PACIENTE, DIAGNOSTICO, TRATAMIENTO, MEDICAMENTOS, OBSERVACIONES) 
+VALUES (1, 1, 1, 'Gripe', 'Reposo y líquidos', 'Paracetamol', 'Sin complicaciones');
+INSERT INTO CITA (ID_CITA, ID_PACIENTE, ID_MEDICO, ID_CONSULTA, FECHA, HORA, MOTIVO, ESTATUS) 
+VALUES (1, 1, 1, 1, '2024-06-01', '10:00', 'Chequeo General', 'Pendiente');
+INSERT INTO CAMA (ID_CAMA, ID_DEPARTAMENTO, NUMERO_CAMA, PISO, ESTATUS) 
+VALUES (1, 1, 101, '1', 'Disponible');
+
+
+INSERT INTO INGRESO (ID_INGRESO,FECHA_INGRESO,FECHA_EGRESO,MOTIVO_INGRESO) VALUES
+(1, '2024-07-01', '2024-07-10', 'Examen de rutina'),
+(2, '2024-07-05', NULL, 'Emergencia por accidente'),
+(3, '2024-07-10', '2024-07-03', 'Tratamiento de fiebre'),
+(4, '2024-07-02', NULL, 'Consulta especializada'),
+(5, '2024-07-03', '2024-07-08', 'Cirugía programada');
+
+INSERT INTO PACIENTE (ID_PACIENTE,ID_INGRESO,ID_SEGURO,NOMBRE,APELLIDO,FECHA_NACIMIENTO,SEXO,DIRECCION,TELEFONO,CORREO_ELECTRONICO,TIPO_SANGRE,ALERGIAS,ENFERMEDADES_CRONICAS,FECHA_REGISTRO
+) VALUES
+(1, 1001, 2001, 'Juan', 'Pérez', '1980-05-01', 'M', 'Calle Falsa 123', 555123456, 'juan.perez@example.com', 'O+', 'Ninguna', 'Diabetes', '2024-07-10'),
+(2, 1002, 2002, 'José', 'Mendoza', '1992-08-05', 'M', 'Avenida del Sol 456', 555234567, 'jose.mendoza@example.com', 'A-', 'Ninguna', 'Hipertensión', '2024-07-12'),
+(3, 1003, 2003, 'Ana', 'Martínez', '1985-12-03', 'F', 'Calle de la Luna 789', 555345678, 'ana.martinez@example.com', 'B+', 'Mariscos', 'Asma', '2024-07-12'),
+(4, 1004, 2004, 'Luis', 'García', '1978-04-02', 'M', 'Boulevard del Río 101', 555456789, 'luis.garcia@example.com', 'AB-', 'Pollen', 'Artritis', '2024-07-11'),
+(5, 1005, 2005, 'María', 'Lopez', '1990-11-01', 'F', 'Avenida Libertador 303', 555567890, 'maria.lopez@example.com', 'O-', 'Ninguna', 'Migrañas', '2024-07-01');
+
+INSERT INTO MEDICO (ID_MEDICO, NOMBRE, APELLIDO, NUMERO_LICENCIA, FECHA_NACIMIENTO, SEXO, DIRECCION, TELEFONO, CORREO_ELECTRONICO, FECHA_REGISTRO)
+VALUES(2, 'Ana', 'Castro', 'JKL123', '1982-03-04', 'Femenino', '567 Calle Principal', 987654321, 'ana.castro@correo.com', '2024-07-12'),
+(3, 'Juan', 'Méndez', 'MNO321', '1990-05-02', 'Masculino', '890 Avenida Norte', 123456789, 'juan.mendez@correo.com', '2024-01-11'),
+(4, 'Patricia', 'Jiménez', 'DEF456', '1978-11-09', 'Femenino', '345 Calle Sur', 987654321, 'patricia.jimenez@correo.com', '2024-02-09'),
+(5, 'Diego', 'Sánchez', 'GHI789', '1985-02-01', 'Masculino', '789 Calle Oriente', 123456789, 'diego.sanchez@correo.com', '2024-07-09'),
+(6, 'Isabel', 'Pérez', 'JKL123', '1992-07-08', 'Femenino', '654 Calle Poniente', 987654321, 'isabel.perez@correo.com', '2024-09-01');

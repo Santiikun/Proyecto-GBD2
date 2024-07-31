@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entidades y Atributos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00796b;
+        }
+
+        .entity {
+            flex: 1 1 calc(50% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #e0f2f1;
+            border: 1px solid #004d40;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .entity:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .entity h2 {
+            margin-top: 0;
+            color: #004d40;
+            font-size: 1.5em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #b2dfdb;
+            border: 1px solid #00796b;
+            border-radius: 3px;
+        }
+
+        a {
+            display: block;
+            margin: 30px auto 0;
+            text-align: center;
+            text-decoration: none;
+            color: #00796b;
+            font-size: 1.2em;
+            transition: color 0.3s;
+            width: 100%;
+        }
+
+        a:hover {
+            color: #004d40;
+        }
+
+        @media (max-width: 768px) {
+            .entity {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .entity {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Entidades y sus Atributos</h1>
+        {% for entidad in entidades %}
+            <div class="entity">
+                <h2>Tabla: {{ entidad.table_name }}</h2>
+                <ul>
+                    {% for attribute in entidad.attributes %}
+                        <li>{{ attribute[0] }} ({{ attribute[1] }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
